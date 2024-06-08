@@ -1,3 +1,4 @@
+import { error } from "console";
 
 export enum LogSeverityLevel {
     low     = 'low',
@@ -16,6 +17,17 @@ export class LogEntity {
         this.message = message;
         this.level = level
         this.createdAt = new Date();
+    }
+
+    static fromJSON = (json: string): LogEntity => {
+        const { message, level, createdAt } = JSON.parse(json);
+
+        const log = new LogEntity( message, level );
+        log.createdAt = new Date(createdAt);
+
+        return log;
+        //if( !message ) throw new Error('Message is required');
+        //if( !level ) throw new Error('Level is required')
     }
 
 }
