@@ -43,12 +43,6 @@ export class EmailPlugin {
             return true;
 
         } catch( error ) {
-            const log = new LogEntity({
-                level: LogSeverityLevel.high,
-                message: 'Email not sent',
-                origin: 'email.service.ts',
-            })
-
             console.error(error);
             return false;
         }
