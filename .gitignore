@@ -2,12 +2,15 @@ node_modules/
 
 dist/
 
+.DS_S
+
 logs/
 
 .env
 
-mongo/
-postgres/
+/mongo
+/mongo-test
+/postgres
+/postgres-test
 
-prisma/migrations/
 

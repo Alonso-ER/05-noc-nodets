@@ -2,14 +2,14 @@ import nodemailer from 'nodemailer';
 import { envs } from '../../config/plugins/env.plugin';
 import { LogEntity, LogSeverityLevel } from '../../domain/entities/log.entity';
 
-interface SendEmailOptions {
+export interface SendEmailOptions {
     to: string | string[];
     subject: string;
     htmlBody: string;
     attachments?: Attachment[]
 }
 
-interface Attachment {
+export interface Attachment {
     filename: string,
     path: string,
 }
@@ -21,7 +21,7 @@ export class EmailPlugin {
     constructor ( ){}
 
 
-    private async sendEmail(options: SendEmailOptions): Promise<boolean> {
+    public async sendEmail(options: SendEmailOptions): Promise<boolean> {
         const { to, subject, htmlBody, attachments = [] } = options
 
         try {
